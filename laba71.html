@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Вычисление квадратного корня</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      form {
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Вычисление квадратного корня</h2>
+    <form>
+      <label for="number">Введите число:</label>
+      <input type="number" id="number"><br><br>
+      
+      <label for="result">Квадратный корень:</label>
+      <input type="text" id="result" disabled><br><br>
+      
+      <button type="button" onclick="calculateSquareRoot()">Вычислить</button>
+      <button type="button" onclick="resetForm()">Очистить</button>
+    </form>
+    
+    <script>
+      function calculateSquareRoot() {
+        const number = document.getElementById("number").value;
+        
+        if (number < 0) {
+          document.getElementById("result").value = "Действительного корня не существует";
+        } else {
+          const squareRoot = Math.sqrt(number);
+          document.getElementById("result").value = squareRoot;
+        }
+      }
+      
+      function resetForm() {
+        document.getElementById("number").value = "";
+        document.getElementById("result").value = "";
+      }
+    </script>
+  </body>
+</html>

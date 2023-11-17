@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Калькулятор степени</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Калькулятор степени</h1>
+
+    <form id="powerCalculatorForm">
+        <label for="base">Число: </label>
+        <input type="number" id="base" name="base" required><br><br>
+
+        <label for="exponent">Степень: </label>
+        <input type="number" id="exponent" name="exponent" required><br><br>
+
+        <input type="button" value="Возвести в степень" onclick="calculatePower()">
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+        function calculatePower() {
+            var base = parseFloat(document.getElementById("base").value);
+            var exponent = parseInt(document.getElementById("exponent").value);
+            var result = 1;
+
+            for (var i = 0; i < exponent; i++) {
+                result *= base;
+            }
+
+            document.getElementById("result").innerHTML = "Результат: " + result;
+        }
+    </script>
+</body>
+
+</html>
