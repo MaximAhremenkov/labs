@@ -1,54 +1,111 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Вычисление площади параллелограмма</title>
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-      }
+<html lang="en">
 
-      form {
-        text-align: center;
-        max-width: 400px;
-        width: 100%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2>Вычисление площади параллелограмма</h2>
-    <form>
-      <label for="side1">Введите длину первой стороны:</label>
-      <input type="number" id="side1"><br><br>
-      
-      <label for="side2">Введите длину второй стороны:</label>
-      <input type="number" id="side2"><br><br>
-      
-      <label for="angle">Введите угол между сторонами в градусах:</label>
-      <input type="number" id="angle"><br><br>
-      
-      <label for="result">Площадь параллелограмма:</label>
-      <input type="number" id="result" disabled><br><br>
-    </form>
-    
-    <script>
-      function calculateArea() {
-        const side1 = document.getElementById("side1").value;
-        const side2 = document.getElementById("side2").value;
-        const angle = document.getElementById("angle").value;
-        
-        const radians = angle * Math.PI / 180;
-        const area = side1 * side2 * Math.sin(radians);
-        
-        document.getElementById("result").value = area;
-      }
-      
-      document.getElementById("angle").addEventListener("blur", calculateArea);
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вычисление площади параллелограмма</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    form {
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="number"] {
+      appearance: textfield;
+      -moz-appearance: textfield;
+      -webkit-appearance: textfield;
+    }
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    input[disabled] {
+      background-color: #f4f4f4;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Вычисление площади параллелограмма</h2>
+  <form>
+    <label for="side1">Введите длину первой стороны:</label>
+    <input type="number" id="side1"><br>
+
+    <label for="side2">Введите длину второй стороны:</label>
+    <input type="number" id="side2"><br>
+
+    <label for="angle">Введите угол между сторонами в градусах:</label>
+    <input type="number" id="angle"><br>
+
+    <label for="result">Площадь параллелограмма:</label>
+    <input type="number" id="result" disabled><br>
+
+    <button type="button" onclick="calculateArea()">Вычислить</button>
+  </form>
+
+  <script>
+    function calculateArea() {
+      const side1 = document.getElementById("side1").value;
+      const side2 = document.getElementById("side2").value;
+      const angle = document.getElementById("angle").value;
+
+      const radians = angle * Math.PI / 180;
+      const area = side1 * side2 * Math.sin(radians);
+
+      document.getElementById("result").value = area;
+    }
+
+    document.getElementById("angle").addEventListener("blur", calculateArea);
+  </script>
+</body>
+
 </html>
