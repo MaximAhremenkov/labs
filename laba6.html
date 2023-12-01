@@ -104,10 +104,12 @@
           return;
         }
 
-        const radians = angle * Math.PI / 180;
-        const area = side1 * side2 * Math.sin(radians);
+        else{
+          const radians = angle * Math.PI / 180;
+          const area = side1 * side2 * Math.sin(radians);
         
-        document.getElementById("result").value = area;
+          document.getElementById("result").value = area;
+        }
       }
       
       document.getElementById("angle").addEventListener("blur", calculateArea);
