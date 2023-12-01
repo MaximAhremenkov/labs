@@ -87,33 +87,30 @@
     <input type="number" id="angle"><br>
 
     <label for="result">Площадь параллелограмма:</label>
-    <input type="number" id="result" disabled><br>
+    <input type="text" id="result" disabled><br>
 
     <button type="button" onclick="calculateArea()">Вычислить</button>
   </form>
 
   <script>
     function calculateArea() {
-        const side1 = parseFloat(document.getElementById("side1").value);
-        const side2 = parseFloat(document.getElementById("side2").value);
-        const angle = parseFloat(document.getElementById("angle").value);
+      const side1 = parseFloat(document.getElementById("side1").value);
+      const side2 = parseFloat(document.getElementById("side2").value);
+      const angle = parseFloat(document.getElementById("angle").value);
 
-        // Добавляем проверку на ввод цифры 0
-        if (side1 === 0 || side2 === 0 || angle === 0) {
-          alert("Некорректные данные. Введите значения отличные от нуля.");
-          return;
-        }
+      // Добавляем проверку на ввод цифры 0
+      if (side1 === 0 || side2 === 0 || angle === 0) {
+        document.getElementById("result").value = "Введены некорректные данные";
+      } else {
+        const radians = angle * Math.PI / 180;
+        const area = side1 * side2 * Math.sin(radians);
 
-        else{
-          const radians = angle * Math.PI / 180;
-          const area = side1 * side2 * Math.sin(radians);
-        
-          document.getElementById("result").value = area;
-        }
+        document.getElementById("result").value = area;
       }
-      
-      document.getElementById("angle").addEventListener("blur", calculateArea);
     }
+
+    document.querySelector("button").addEventListener("click", calculateArea);
+    document.getElementById("angle").addEventListener("blur", calculateArea);
   </script>
 </body>
 
